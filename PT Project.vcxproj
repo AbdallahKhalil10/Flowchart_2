@@ -287,7 +287,7 @@
 	<ClCompile Include="Statements\End.cpp" />
     <ClCompile Include="Statements\Read.cpp" />
 	  <ClCompile Include="Statements\Write.cpp" />
-    <ClCompile Include="Statements\Statement.cpp" />
+    <ClCompile Include="Statements\Statement.cpp" /> 
     <ClCompile Include="main.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
