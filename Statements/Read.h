@@ -23,16 +23,7 @@ private:
 
 public:
 	Read(Point Lcorner, string text);
-<<<<<<< Updated upstream
 	void setText(const string& R1);
-=======
-<<<<<<< HEAD
-
-	void Read::setText(const string& R1);
-=======
-	void setText(const string& R1);
->>>>>>> 3875352db6736c20257dbc78a6ad25f645c80d68
->>>>>>> Stashed changes
 
 	virtual void Draw(Output* pOut) const;
 
