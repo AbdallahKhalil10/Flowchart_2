@@ -246,7 +246,7 @@ void Output::DrawConditionalStatement(Point Right, int width, int height, string
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString((Right.x + 92) - width/2 , Right.y, Text);
+	pWind->DrawString((Right.x + 80) - width/2 , Right.y, Text);
 
 }
 

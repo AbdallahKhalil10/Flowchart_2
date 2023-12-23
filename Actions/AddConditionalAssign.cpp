@@ -1,4 +1,4 @@
-#include "AddWriteAssign.h"
+#include "AddConditionalAssign.h"
 
 
 
@@ -11,22 +11,26 @@
 using namespace std;
 
 //constructor: set the ApplicationManager pointer inside this action
-AddWriteAssign::AddWriteAssign(ApplicationManager* pAppManager) :Action(pAppManager)
+AddConditionalAssign::AddConditionalAssign(ApplicationManager* pAppManager) :Action(pAppManager)
 {}
 
-void AddWriteAssign::ReadActionParameters()
+void AddConditionalAssign::ReadActionParameters()
 {
 	Input* pIn = pManager->GetInput();
 	Output* pOut = pManager->GetOutput();
 
 	//Read the (Position) parameter
-	pOut->PrintMessage("Write Assignment Statement: Click to add the statement");
+	pOut->PrintMessage("Conditional Assignment Statement: Click to add the statement");
 
 	pIn->GetPointClicked(Position);
 	pOut->ClearStatusBar();
 
-	pOut->PrintMessage("Please write a variable value or a message: ");
-	write = pIn->GetString(pOut);
+	pOut->PrintMessage("Please enter the variable to be compared: ");
+	first_Conditional_operand = pIn->GetString(pOut);
+	pOut->PrintMessage("Please enter the comparison operator: ");
+	comp = pIn->GetCompOperator(pOut);
+	pOut->PrintMessage("Please enter a the variable or the value to be compared: ");
+	second_Conditional_operand = pIn->GetString(pOut);
 
 
 
@@ -38,7 +42,7 @@ void AddWriteAssign::ReadActionParameters()
 	//      Call the appropriate functions for this.
 }
 
-void AddWriteAssign::Execute()
+void AddConditionalAssign::Execute()
 {
 	ReadActionParameters();
 
@@ -48,7 +52,7 @@ void AddWriteAssign::Execute()
 	Corner.x = Position.x - UI.ASSGN_WDTH / 2;
 	Corner.y = Position.y;
 
-	Write* pAssign = new Write(Corner, write);
+	Conditional* pAssign = new Conditional(Corner, first_Conditional_operand, comp, second_Conditional_operand);
 	//TODO: should set the LHS and RHS of pAssign statement
 	//      with the data members set and validated before in ReadActionParameters()
 
