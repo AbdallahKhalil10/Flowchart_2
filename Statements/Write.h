@@ -1,9 +1,9 @@
-#ifndef _READ_H
-#define  _READ_H
+#ifndef _WRITE_H
+#define  _WRITE_H
 
 #include "Statement.h"
 
-class Read : public Statement
+class Write : public Statement
 {
 private:
 	string txt;
@@ -22,17 +22,9 @@ private:
 	virtual void UpdateStatementText();
 
 public:
-	Read(Point Lcorner, string text);
-<<<<<<< Updated upstream
-	void setText(const string& R1);
-=======
-<<<<<<< HEAD
+	Write(Point Lcorner, string text);
 
-	void Read::setText(const string& R1);
-=======
-	void setText(const string& R1);
->>>>>>> 3875352db6736c20257dbc78a6ad25f645c80d68
->>>>>>> Stashed changes
+	void Write::setText(const string& R1);
 
 	virtual void Draw(Output* pOut) const;
 

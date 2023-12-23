@@ -286,8 +286,16 @@
 	<ClCompile Include="Statements\Start.cpp" />
 	<ClCompile Include="Statements\End.cpp" />
     <ClCompile Include="Statements\Read.cpp" />
+<<<<<<< Updated upstream
 	  <ClCompile Include="Statements\Write.cpp" />
     <ClCompile Include="Statements\Statement.cpp" /> 
+=======
+<<<<<<< HEAD
+=======
+	  <ClCompile Include="Statements\Write.cpp" />
+>>>>>>> 3875352db6736c20257dbc78a6ad25f645c80d68
+    <ClCompile Include="Statements\Statement.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="main.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>

@@ -225,7 +225,7 @@ void Output::DrawReadWriteStatement(Point Right, int width, int height, string T
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString((Right.x + 90) - width / 2, Right.y + height / 4, Text);
+	pWind->DrawString((Right.x + 60) - width / 2, Right.y + height / 4, Text);
 
 }
 

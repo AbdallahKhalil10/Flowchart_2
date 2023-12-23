@@ -47,7 +47,14 @@ void AddReadAssign::Execute()
 	Point Corner;
 	Corner.x = Position.x - UI.ASSGN_WDTH / 2;
 	Corner.y = Position.y;
+<<<<<<< HEAD
+	
+=======
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> 3875352db6736c20257dbc78a6ad25f645c80d68
+>>>>>>> Stashed changes
 	Read* pAssign = new Read(Corner, read);
 	//TODO: should set the LHS and RHS of pAssign statement
 	//      with the data members set and validated before in ReadActionParameters()
