@@ -1,9 +1,9 @@
-#include "READ.h"
+#include "Read.h"
 #include <sstream>
 
 using namespace std;
 
-READ::READ(Point Lcorner, string text)
+Read::Read(Point Lcorner, string text)
 
 {
 	txt = text;
@@ -26,7 +26,7 @@ READ::READ(Point Lcorner, string text)
 
 
 
-void READ::setText(const string& R1)
+void Read::setText(const string& R1)
 {
 
 	txt = R1;
@@ -35,7 +35,7 @@ void READ::setText(const string& R1)
 
 
 
-void READ::Draw(Output* pOut) const
+void Read::Draw(Output* pOut) const
 {
 	//Call Output::DrawAssign function to draw assignment statement 	
 	pOut->DrawReadWriteStatement(RightCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
@@ -44,7 +44,7 @@ void READ::Draw(Output* pOut) const
 
 
 //This function should be called when LHS or RHS changes
-void READ::UpdateStatementText()
+void Read::UpdateStatementText()
 {
 
 	//Build the statement text: Left handside then equals then right handside

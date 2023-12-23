@@ -1,8 +1,8 @@
-/*#ifndef ADD_WRITE_ASSIGN_H
+#ifndef ADD_WRITE_ASSIGN_H
 #define ADD_WRITE_ASSIGN_H
 
 #include "Action.h"
-#include "..\Statements\WriteAssign.h"
+#include "..\Statements\Write.h"
 
 //Add Value Assignment Statement Action
 //This class is responsible for 
@@ -18,7 +18,7 @@ private:
 	// to be set in ReadActionParameters() then used in Execute()
 
 	Point Position;
-	string Write;
+	string write;
 	//Position where the user clicks to add the stat.
 	//TODO: you should add LHS and RHS of the assignment statement as parameters
 
@@ -34,4 +34,4 @@ public:
 };
 
 #endif
-*/
+

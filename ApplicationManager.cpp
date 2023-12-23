@@ -5,6 +5,7 @@
 #include "Actions\AddStart.h"
 #include "Actions\AddEnd.h"
 #include "Actions\AddReadAssign.h"
+#include "Actions\AddWriteAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -65,6 +66,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_READ:
 			pAct = new AddReadAssign(this);
+			break;
+		case ADD_WRITE:
+			pAct = new AddWriteAssign(this);
 			break;
 		/*case ADD_CONDITION:
 			pAct = new AddCondition(this);

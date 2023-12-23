@@ -3,7 +3,7 @@
 
 #include "Statement.h"
 
-class READ : public Statement
+class Read : public Statement
 {
 private:
 	string txt;
@@ -22,7 +22,8 @@ private:
 	virtual void UpdateStatementText();
 
 public:
-	READ(Point Lcorner, string text);
+	Read(Point Lcorner, string text);
+	void setText(const string& R1);
 
 	virtual void Draw(Output* pOut) const;
 

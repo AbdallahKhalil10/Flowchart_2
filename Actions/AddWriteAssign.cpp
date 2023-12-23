@@ -1,4 +1,4 @@
-/*#include "AddWriteAssign.h"
+#include "AddWriteAssign.h"
 
 
 
@@ -25,8 +25,8 @@ void AddWriteAssign::ReadActionParameters()
 	pIn->GetPointClicked(Position);
 	pOut->ClearStatusBar();
 
-	pOut->PrintMessage("Please enter the variable value: ");
-	Read = pIn->GetString(pOut);
+	pOut->PrintMessage("Please write a variable value or a message: ");
+	write = pIn->GetString(pOut);
 
 
 
@@ -48,7 +48,7 @@ void AddWriteAssign::Execute()
 	Corner.x = Position.x - UI.ASSGN_WDTH / 2;
 	Corner.y = Position.y;
 
-	WriteAssign* pAssign = new WriteAssign(Corner, Read);
+	Write* pAssign = new Write(Corner, write);
 	//TODO: should set the LHS and RHS of pAssign statement
 	//      with the data members set and validated before in ReadActionParameters()
 

@@ -26,7 +26,7 @@ void AddReadAssign::ReadActionParameters()
 	pOut->ClearStatusBar();
 
 	pOut->PrintMessage("Please enter the variable value: ");
-	Read = pIn->GetString(pOut);
+	read = pIn->GetString(pOut);
 	
 
 
@@ -48,7 +48,7 @@ void AddReadAssign::Execute()
 	Corner.x = Position.x - UI.ASSGN_WDTH / 2;
 	Corner.y = Position.y;
 
-	ReadAssign* pAssign = new ReadAssign(Corner, Read);
+	Read* pAssign = new Read(Corner, read);
 	//TODO: should set the LHS and RHS of pAssign statement
 	//      with the data members set and validated before in ReadActionParameters()
 

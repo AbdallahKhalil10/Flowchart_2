@@ -157,6 +157,9 @@
 	  <ClCompile Include="Statements\End.cpp">
 		  <Filter>Statements</Filter>
 	  </ClCompile>
+	  <ClCompile Include="Statements\Read.cpp">
+		  <Filter>Statements</Filter>
+	  </ClCompile>
     <ClCompile Include="Actions\AddValueAssign.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -170,6 +173,9 @@
 		<Filter>Action Classes</Filter>
 	  </ClCompile>
 	  <ClCompile Include="Actions\AddEnd.cpp">
+		<Filter>Action Classes</Filter>
+	  </ClCompile>
+	   <ClCompile Include="Actions\AddReadAssign.cpp">
 		<Filter>Action Classes</Filter>
 	  </ClCompile>
     <ClCompile Include="HelperFn.cpp" />

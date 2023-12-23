@@ -271,6 +271,7 @@
 	<ClCompile Include="Actions\AddStart.cpp" />
     <ClCompile Include="Actions\AddEnd.cpp" />
 	<ClCompile Include="Actions\AddReadAssign.cpp" />
+	  <ClCompile Include="Actions\AddWriteAssign.cpp" />
     <ClCompile Include="ApplicationManager.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -284,7 +285,8 @@
 	<ClCompile Include="Statements\OperatorAssign.cpp" />
 	<ClCompile Include="Statements\Start.cpp" />
 	<ClCompile Include="Statements\End.cpp" />
-    <ClCompile Include="Statements\ReadAssign.cpp" />
+    <ClCompile Include="Statements\Read.cpp" />
+	  <ClCompile Include="Statements\Write.cpp" />
     <ClCompile Include="Statements\Statement.cpp" />
     <ClCompile Include="main.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
