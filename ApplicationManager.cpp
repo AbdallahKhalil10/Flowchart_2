@@ -9,6 +9,8 @@
 #include "Actions\AddConditionalAssign.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
+#include "Actions\Select.h"
+
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -75,7 +77,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddConditionalAssign(this);
 			break;	
 		case SELECT:
-			///create Select Action here
+			pAct = new Select(this);
+			break;
+			
 
 			break;
 
@@ -110,17 +114,24 @@ void ApplicationManager::AddStatement(Statement *pStat)
 	
 }
 
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////
 Statement *ApplicationManager::GetStatement(Point P) const
 {
 	//If this point P(x,y) belongs to a statement return a pointer to it.
 	//otherwise, return NULL
 
-
 	///Add your code here to search for a statement given a point P(x,y)	
 	///WITHOUT breaking class responsibilities
-
+	
+	for (int i = 0; i < StatCount; i++)
+		if (StatList[i]->IsOnStat(P))
+			return StatList[i];
+	
 	return NULL;
+	
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the selected statement
@@ -182,4 +193,29 @@ ApplicationManager::~ApplicationManager()
 	delete pIn;
 	delete pOut;
 	
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////  Added
+void ApplicationManager::UnSelect()
+{
+	if (GetSelectedStatement() != NULL)
+	{
+
+		GetSelectedStatement()->SetSelected(false);
+		SetSelectedStatement(NULL);
+
+	}
+	/*
+	else if (GetSelectedSConnector() != NULL)
+	{
+		GetSelectedSConnector()->SetSelected(false);
+		SetSelectedConnector(NULL);
+
+	}
+	*/
+
+	UpdateInterface();
+
 }

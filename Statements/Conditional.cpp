@@ -65,3 +65,19 @@ void Conditional::UpdateStatementText()
 	T << LHS << OP << RHS;
 	Text = T.str();
 }
+
+
+
+
+/// 
+/// //////////////////////////////////////////////////////////////////////////////// ADDED
+
+bool Conditional::IsOnStat(Point P)
+{
+	if (P.x >= LeftCorner.x && P.x <= (LeftCorner.x + UI.ASSGN_WDTH))
+		if (P.y >= LeftCorner.y && P.y <= (LeftCorner.y + UI.ASSGN_HI))
+			return true;
+
+	return false;
+
+}

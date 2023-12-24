@@ -1,4 +1,4 @@
-#ifndef _START_H
+#ifndef _END_H
 #define  _END_H
 
 #include "Statement.h"
@@ -25,6 +25,9 @@ public:
 
 	virtual void Draw(Output* pOut) const;
 
+
+	/// ////////////////////////////////////////////////////////////////////////////added
+	virtual bool IsOnStat(Point P);   // check if the point in the statement area or not
 
 };
 

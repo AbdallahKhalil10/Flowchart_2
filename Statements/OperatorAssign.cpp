@@ -56,6 +56,20 @@ void OperatorAssign::setRHS2(const string& R2)
 
 
 
+/// 
+/// //////////////////////////////////////////////////////////////////////////////// ADDED
+
+bool OperatorAssign::IsOnStat(Point P)
+{
+	if (P.x >= LeftCorner.x && P.x <= (LeftCorner.x + UI.ASSGN_WDTH))
+		if (P.y >= LeftCorner.y && P.y <= (LeftCorner.y + UI.ASSGN_HI))
+			return true;
+
+	return false;
+
+}
+
+
 
 void OperatorAssign::Draw(Output* pOut) const
 {

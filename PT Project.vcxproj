@@ -273,6 +273,7 @@
 	  <ClCompile Include="Actions\AddWriteAssign.cpp" />
 	  <ClCompile Include="Actions\AddReadAssign.cpp" />
 	  <ClCompile Include="Actions\AddConditionalAssign.cpp" />
+	  <ClCompile Include="Actions\Select.cpp" />
     <ClCompile Include="ApplicationManager.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -290,6 +291,7 @@
 	  <ClCompile Include="Statements\Write.cpp" />
 	  <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Statements\Statement.cpp" />
+	  
 	  
     <ClCompile Include="main.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>

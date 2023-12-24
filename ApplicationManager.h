@@ -14,6 +14,7 @@ class ApplicationManager
 	enum { MaxCount = 200 };	//Max no of statements/connectors in a single flowchart
 
 private:
+	
 	int StatCount;		//Actual number of statements
 	int ConnCount;		//Actual number of connectors
 	Statement* StatList[MaxCount];	//List of all statements (Array of pointers)
@@ -27,6 +28,9 @@ private:
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
+
+
+	
 
 public:	
 	ApplicationManager(); 
@@ -57,7 +61,16 @@ public:
 	Input *GetInput() const;        //Return pointer to the input
 	Output *GetOutput() const;      //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
-	
+
+
+
+
+
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////added
+	void UnSelect();
+	Point getPoint();
 };
 
 #endif

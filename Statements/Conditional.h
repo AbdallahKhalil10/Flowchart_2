@@ -41,6 +41,8 @@ public:
 
 	virtual void Draw(Output* pOut) const;
 
+	/// ////////////////////////////////////////////////////////////////////////////added
+	virtual bool IsOnStat(Point P);   // check if the point in the statement area or not
 };
 
 #endif

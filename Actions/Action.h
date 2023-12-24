@@ -16,12 +16,22 @@ protected:
 	
 	//Pointer to ApplicationManager because action needs this pointer for its functions
 	ApplicationManager *pManager;	
+	bool CanUndo;       ////////////////////////////////added 
 
 public:
 
 	Action(ApplicationManager *pAppManager) 
-	{ pManager = pAppManager; }
+	{ 
+		pManager = pAppManager; 
+		CanUndo = true;    ////////////////////////////////added 
 	
+	}
+
+	void SetUndo(bool x) {CanUndo = x;}////////////////////////////////added 
+
+	bool GetUndo() { return CanUndo; }  ////////////////////////////////added 
+
+
 	//Reads parameters required for action to execute
 	virtual void ReadActionParameters() =0;
 	

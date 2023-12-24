@@ -13,7 +13,11 @@ protected:
 	int ID;			//Each Statement has an ID --> must be unique
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the folwchart
-
+	
+	
+	/////////////////////////////////////////////////////////////////////////////////////////added
+	string	Comment;
+	////////////////////////
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
@@ -26,6 +30,7 @@ public:
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	
+
 	
 
 	///TODO:The following functions should be supported by the Statement class
@@ -43,6 +48,13 @@ public:
 
 
 	///TODO: Add more functions if needed
+
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////added
+	void PrintInfo(Output* pOut);
+
+	virtual bool IsOnStat(Point P) = 0;  // check if the point in the statement area or not
+	///////////////////////////////////
 
 };
 

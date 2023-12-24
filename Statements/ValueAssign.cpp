@@ -52,3 +52,21 @@ void ValueAssign::UpdateStatementText()
 	T<<LHS<<" = "<<RHS;	
 	Text = T.str();	 
 }
+
+
+
+/// ///////////////////////////////////////////////////////////////////////////////////added
+
+bool ValueAssign::IsOnStat(Point P)
+{
+	if (P.x >= LeftCorner.x && P.x <= (LeftCorner.x + UI.ASSGN_WDTH))
+		if (P.y >= LeftCorner.y && P.y <= (LeftCorner.y + UI.ASSGN_HI))
+			return true;
+
+	return false;
+
+}
+
+
+
+
