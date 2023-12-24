@@ -7,6 +7,7 @@
 #include "Actions\AddReadAssign.h"
 #include "Actions\AddWriteAssign.h"
 #include "Actions\AddConditionalAssign.h"
+#include "Actions\Save.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -82,6 +83,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pOut->ClearToolBar();
 			pOut->CreateDesignToolBar();
 			break;
+		case SAVE:
+			pAct = new Save(this);
+			break;
+
 		case SELECT:
 			///create Select Action here
 
@@ -109,6 +114,21 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 //						Statements Management Functions								//
 //==================================================================================//
 
+
+int ApplicationManager::GetStatementCount() {
+	return StatCount;
+}
+int ApplicationManager::GetConnectorCount() {
+	return ConnCount;
+}
+Statement* ApplicationManager::GetStatementList(int j)
+{
+	return StatList[j];
+}
+Connector* ApplicationManager::GetConnectorList(int j)
+{
+	return ConnList[j];
+}
 
 //Add a statement to the list of statements
 void ApplicationManager::AddStatement(Statement *pStat)

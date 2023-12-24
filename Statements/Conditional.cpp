@@ -65,3 +65,8 @@ void Conditional::UpdateStatementText()
 	T << LHS << OP << RHS;
 	Text = T.str();
 }
+void Conditional::Save(ofstream & OutFile) {
+	//OutFile << "Conditional" << "    " << ID << "    " << LeftCorner.x << " " << LeftCorner.y << "     " << RightCorner.x << " " << RightCorner.y;
+
+
+}

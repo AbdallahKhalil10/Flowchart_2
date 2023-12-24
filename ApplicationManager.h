@@ -15,7 +15,7 @@ class ApplicationManager
 
 private:
 	int StatCount;		//Actual number of statements
-	int ConnCount;		//Actual number of connectors
+	int ConnCount;      //Actual number of connectors
 	Statement* StatList[MaxCount];	//List of all statements (Array of pointers)
 	Connector* ConnList[MaxCount];	//List of all connectors (Array of pointers)
 
@@ -36,6 +36,10 @@ public:
 	ActionType GetUserAction() const; //Reads the input command from the user 
 	                                  //and returns the corresponding action type
 	void ExecuteAction(ActionType) ;  //Creates an action and executes it
+
+
+	int GetStatementCount();
+	int GetConnectorCount();
 	
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
@@ -49,6 +53,8 @@ public:
 	// Note: you should use the following 4 functions 
 	//       in order not to break class responsibilities (especially in copy, cut and paste)
 	Statement *GetSelectedStatement() const;	 //Returns the selected Statement
+	Statement* GetStatementList(int j);
+	Connector* GetConnectorList(int j);
 	void SetSelectedStatement(Statement *pStat); //Set the Statement selected by the user
 	Statement *GetClipboard() const;	         //Returns the Clipboard
 	void SetClipboard(Statement *pStat);         //Set the Clipboard
