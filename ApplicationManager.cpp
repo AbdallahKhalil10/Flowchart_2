@@ -74,6 +74,14 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_CONDITION:
 			pAct = new AddConditionalAssign(this);
 			break;	
+		case SWITCH_SIM_MODE:
+			pOut->ClearToolBar();
+			pOut->CreateSimulationToolBar();
+			break;
+		case SWITCH_DSN_MODE:
+			pOut->ClearToolBar();
+			pOut->CreateDesignToolBar();
+			break;
 		case SELECT:
 			///create Select Action here
 
