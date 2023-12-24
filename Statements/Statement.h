@@ -25,6 +25,7 @@ public:
 	Statement();
 	void SetSelected(bool s);
 	bool IsSelected() const;
+	void SetID(int num);
 	virtual void Save(ofstream& OutFile) {};
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement

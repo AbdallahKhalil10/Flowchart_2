@@ -44,6 +44,5 @@ void Save::Execute()
 		Conn->Save(saved_file);
 	}*/
 	saved_file.close();
-	//system("file.txt");
 }
 

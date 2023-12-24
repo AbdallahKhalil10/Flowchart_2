@@ -1,5 +1,6 @@
 #include "Conditional.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -66,7 +67,8 @@ void Conditional::UpdateStatementText()
 	Text = T.str();
 }
 void Conditional::Save(ofstream & OutFile) {
-	//OutFile << "Conditional" << "    " << ID << "    " << LeftCorner.x << " " << LeftCorner.y << "     " << RightCorner.x << " " << RightCorner.y;
+	OutFile << "Conditional" << "    " << ID << "    " 
+		<< "point_1_x : "<< LeftCorner.x << " " << LeftCorner.y << "     " << RightCorner.x << " " << RightCorner.y << endl;
 
 
 }

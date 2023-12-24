@@ -133,8 +133,13 @@ Connector* ApplicationManager::GetConnectorList(int j)
 //Add a statement to the list of statements
 void ApplicationManager::AddStatement(Statement *pStat)
 {
-	if(StatCount < MaxCount)
+
+	if (StatCount < MaxCount) {
+		pStat->SetID(StatCount);
 		StatList[StatCount++] = pStat;
+	}
+
+
 	
 }
 
