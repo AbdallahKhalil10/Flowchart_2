@@ -20,6 +20,7 @@ ApplicationManager::ApplicationManager()
 	
 	StatCount = 0;
 	ConnCount = 0;
+	Unique_ID = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
 	
@@ -133,9 +134,10 @@ Connector* ApplicationManager::GetConnectorList(int j)
 //Add a statement to the list of statements
 void ApplicationManager::AddStatement(Statement *pStat)
 {
-
+	
 	if (StatCount < MaxCount) {
-		pStat->SetID(StatCount);
+		Unique_ID++;
+		pStat->SetID(Unique_ID);
 		StatList[StatCount++] = pStat;
 	}
 

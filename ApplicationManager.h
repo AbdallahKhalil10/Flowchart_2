@@ -15,7 +15,8 @@ class ApplicationManager
 
 private:
 	int StatCount;		//Actual number of statements
-	int ConnCount;      //Actual number of connectors
+	int ConnCount;
+	int Unique_ID;   //Actual number of connectors
 	Statement* StatList[MaxCount];	//List of all statements (Array of pointers)
 	Connector* ConnList[MaxCount];	//List of all connectors (Array of pointers)
 
