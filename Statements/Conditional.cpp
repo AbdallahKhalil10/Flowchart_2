@@ -1,5 +1,6 @@
 #include "Conditional.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -69,6 +70,7 @@ void Conditional::UpdateStatementText()
 
 
 
+
 /// 
 /// //////////////////////////////////////////////////////////////////////////////// ADDED
 
@@ -79,5 +81,12 @@ bool Conditional::IsOnStat(Point P)
 			return true;
 
 	return false;
+
+}
+void Conditional::Save(ofstream & OutFile) {
+	OutFile << "Conditional Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
+		<< "point_2_X : " << RightCorner.x << "  " << "point_2_Y : " << RightCorner.y << "    "
+		<< "Left_operator : " << LHS << "    " << "Comparison_operator : " << OP << "    " << "Right_operator : " << RHS << endl;
 
 }

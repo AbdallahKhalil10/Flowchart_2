@@ -26,6 +26,7 @@ public:
 	void setText(const string& R1);
 
 	virtual void Draw(Output* pOut) const;
+	virtual void Save(ofstream& OutFile);
 
 	/// ////////////////////////////////////////////////////////////////////////////added
 	virtual bool IsOnStat(Point P);   // check if the point in the statement area or not

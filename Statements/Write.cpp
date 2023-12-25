@@ -1,5 +1,6 @@
 #include "Write.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -66,4 +67,10 @@ bool Write::IsOnStat(Point P)
 			return true;
 
 	return false;
+}
+void Write::Save(ofstream& OutFile) {
+	OutFile << "Write Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "     "
+		<< "point_2_X : " << RightCorner.x << "  " << "point_2_Y : " << RightCorner.y << endl;
+
 }

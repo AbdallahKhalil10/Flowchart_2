@@ -24,6 +24,7 @@ public:
 	End(Point Lcorner, string text);
 
 	virtual void Draw(Output* pOut) const;
+	virtual void Save(ofstream& OutFile);
 
 
 	/// ////////////////////////////////////////////////////////////////////////////added

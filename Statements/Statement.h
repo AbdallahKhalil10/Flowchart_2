@@ -6,6 +6,8 @@
 //class Output;
 #include "..\GUI\Output.h"
 
+class ApplicationManger;
+
 //Base class for all Statements
 class Statement
 {
@@ -27,6 +29,8 @@ public:
 	Statement();
 	void SetSelected(bool s);
 	bool IsSelected() const;
+	void SetID(int num);
+	virtual void Save(ofstream& OutFile) = 0;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	

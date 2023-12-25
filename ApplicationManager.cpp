@@ -7,6 +7,7 @@
 #include "Actions\AddReadAssign.h"
 #include "Actions\AddWriteAssign.h"
 #include "Actions\AddConditionalAssign.h"
+#include "Actions\Save.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 #include "Actions\Select.h"
@@ -21,6 +22,7 @@ ApplicationManager::ApplicationManager()
 	
 	StatCount = 0;
 	ConnCount = 0;
+	Unique_ID = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
 	
@@ -76,6 +78,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_CONDITION:
 			pAct = new AddConditionalAssign(this);
 			break;	
+		case SWITCH_SIM_MODE:
+			pOut->ClearToolBar();
+			pOut->CreateSimulationToolBar();
+			break;
+		case SWITCH_DSN_MODE:
+			pOut->ClearToolBar();
+			pOut->CreateDesignToolBar();
+			break;
+		case SAVE:
+			pAct = new Save(this);
+			break;
+
 		case SELECT:
 			pAct = new Select(this);
 			break;
@@ -106,11 +120,32 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 //==================================================================================//
 
 
+int ApplicationManager::GetStatementCount() {
+	return StatCount;
+}
+int ApplicationManager::GetConnectorCount() {
+	return ConnCount;
+}
+Statement* ApplicationManager::GetStatementList(int j)
+{
+	return StatList[j];
+}
+Connector* ApplicationManager::GetConnectorList(int j)
+{
+	return ConnList[j];
+}
+
 //Add a statement to the list of statements
 void ApplicationManager::AddStatement(Statement *pStat)
 {
-	if(StatCount < MaxCount)
+	
+	if (StatCount < MaxCount) {
+		Unique_ID++;
+		pStat->SetID(Unique_ID);
 		StatList[StatCount++] = pStat;
+	}
+
+
 	
 }
 

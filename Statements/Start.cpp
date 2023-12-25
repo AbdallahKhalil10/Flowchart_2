@@ -1,5 +1,6 @@
 #include "Start.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -54,5 +55,9 @@ bool Start::IsOnStat(Point P)
 			return true;
 
 	return false;
+}
+void Start::Save(ofstream& OutFile) {
+	OutFile << "Start Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
 
 }

@@ -26,3 +26,9 @@ void Statement::PrintInfo(Output* pOut)
 	pOut->PrintMessage(Text + " // " + Comment);
 	//pOut->PrintMessage("selected " );
 }
+
+void Statement::SetID(int num)
+{
+	ID = num;
+}
+

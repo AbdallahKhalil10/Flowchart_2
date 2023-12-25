@@ -37,6 +37,7 @@ public:
 	void setRHS(const string& R);
 
 	virtual void Draw(Output* pOut) const;
+	virtual void Save(ofstream& OutFile);
 
 
 	/// ////////////////////////////////////////////////////////////////////////////added

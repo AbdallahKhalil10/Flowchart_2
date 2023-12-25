@@ -1,5 +1,6 @@
 #include "ValueAssign.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -55,6 +56,7 @@ void ValueAssign::UpdateStatementText()
 
 
 
+
 /// ///////////////////////////////////////////////////////////////////////////////////added
 
 bool ValueAssign::IsOnStat(Point P)
@@ -70,3 +72,8 @@ bool ValueAssign::IsOnStat(Point P)
 
 
 
+void ValueAssign::Save(ofstream& OutFile) {
+	OutFile << "Value assign Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
+		<< "variable name: " << LHS << "    " << "value assigned : " << RHS << endl;
+}
