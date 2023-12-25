@@ -67,8 +67,8 @@ void Conditional::UpdateStatementText()
 	Text = T.str();
 }
 void Conditional::Save(ofstream & OutFile) {
-	OutFile << "Conditional" << "    " << ID << "    " 
-		<< "point_1_x : "<< LeftCorner.x << " " << LeftCorner.y << "     " << RightCorner.x << " " << RightCorner.y << endl;
-
-
+	OutFile << "Conditional Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
+		<< "point_2_X : " << RightCorner.x << "  " << "point_2_Y : " << RightCorner.y << "    "
+		<< "Left_operator : " << LHS << "    " << "Comparison_operator : " << OP << "    " << "Right_operator : " << RHS << endl;
 }

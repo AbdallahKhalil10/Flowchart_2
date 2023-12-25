@@ -2,6 +2,7 @@
 
 //NOTE: YOU MUST NOT CHANGE THE MAIN FUNCTION
 
+
 int main()
 {
 	ActionType ActType;

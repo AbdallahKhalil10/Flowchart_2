@@ -1,5 +1,6 @@
 #include "Read.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -52,4 +53,10 @@ void Read::UpdateStatementText()
 	T << "READ  " << txt;
 	Text = T.str();
 
+}
+
+void Read::Save(ofstream& OutFile) {
+	OutFile << "Read Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
+		<< "point_2_X : " << RightCorner.x << "  " << "point_2_Y : " << RightCorner.y << endl;
 }

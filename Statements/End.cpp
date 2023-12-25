@@ -1,5 +1,6 @@
 #include "End.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -40,4 +41,8 @@ void End::UpdateStatementText()
 	T << txt;
 	Text = T.str();
 
+}
+void End::Save(ofstream& OutFile) {
+	OutFile << "End Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
 }

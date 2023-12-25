@@ -26,6 +26,7 @@ public:
 	void setText(const string& R1);
 
 	virtual void Draw(Output* pOut) const;
+	virtual void Save(ofstream& OutFile);
 
 };
 

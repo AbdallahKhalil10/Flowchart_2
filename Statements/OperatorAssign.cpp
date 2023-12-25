@@ -1,5 +1,6 @@
 #include "OperatorAssign.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -74,4 +75,11 @@ void OperatorAssign::UpdateStatementText()
 	T << LHS << " = " << RHS1 << OP << RHS2;
 	Text = T.str();
 
+}
+
+void OperatorAssign::Save(ofstream& OutFile) {
+	OutFile << "Operator Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
+		<< "Left_operator : " << LHS << "    " << "First_Right: " << RHS1 << "    " << "Arithmetic_Operator: " << OP << "    " << "Second_Right: " << RHS2 << endl;
+		
 }

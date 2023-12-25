@@ -1,5 +1,6 @@
 #include "ValueAssign.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -51,4 +52,10 @@ void ValueAssign::UpdateStatementText()
 	ostringstream T;
 	T<<LHS<<" = "<<RHS;	
 	Text = T.str();	 
+}
+
+void ValueAssign::Save(ofstream& OutFile) {
+	OutFile << "Value assign Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
+		<< "variable name: " << LHS << "    " << "value assigned : " << RHS << endl;
 }

@@ -1,5 +1,6 @@
 #include "Start.h"
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -40,4 +41,9 @@ void Start::UpdateStatementText()
 	T << txt;
 	Text = T.str();
 
+}
+
+void Start::Save(ofstream& OutFile) {
+	OutFile << "Start Statement" << "    " << "Statement ID: " << ID << "    "
+		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
 }

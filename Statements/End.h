@@ -1,4 +1,4 @@
-#ifndef _START_H
+#ifndef _END_H
 #define  _END_H
 
 #include "Statement.h"
@@ -24,6 +24,7 @@ public:
 	End(Point Lcorner, string text);
 
 	virtual void Draw(Output* pOut) const;
+	virtual void Save(ofstream& OutFile);
 
 
 };
