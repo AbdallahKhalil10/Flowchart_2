@@ -39,6 +39,7 @@ public:
 	void setRHS(const string& R);
 	void setOperator(const string& Op);
 	virtual void Save(ofstream& OutFile);
+	virtual void Load(ifstream& InFile);
 
 	virtual void Draw(Output* pOut) const;
 

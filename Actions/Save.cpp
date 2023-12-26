@@ -24,10 +24,12 @@ void Save::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	pOut->PrintMessage("Please enter your file name: ");
 	FileName = pIn->GetString(pOut);
+	pOut->ClearStatusBar();
 }
 
 void Save::Execute()
 {
+	Output* pOut = pManager->GetOutput();
 	ReadActionParameters();
 	ofstream saved_file{ FileName };
 
@@ -43,6 +45,7 @@ void Save::Execute()
 		Conn = pManager->GetConnectorList(i);
 		Conn->Save(saved_file);
 	}*/
+	pOut->PrintMessage("Saved Successfully !!");
 	saved_file.close();
 }
 

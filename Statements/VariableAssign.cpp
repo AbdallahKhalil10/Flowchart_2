@@ -69,8 +69,24 @@ bool VariableAssign::IsOnStat(Point P)
 
 }
 void VariableAssign::Save(ofstream& OutFile) {
-	OutFile << "Variable Assign Statement" << "    " << "Statement ID: " << ID << "    "
+	OutFile << "Variable_Assign Statement" << "    " << "Statement ID: " << ID << "    "
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
 		<< "Left_Variable : " << LHS << "    " << "Right_Variable : " << RHS << endl;
 
 }
+
+void VariableAssign::Load(ifstream& InFile) {
+	string temp;
+	int ID;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> ID;
+	SetID(ID);
+	InFile >> temp >> temp >> LeftCorner.x;
+	InFile >> temp >> temp >> LeftCorner.y;
+	InFile >> temp >> temp >> LHS;
+	InFile >> temp >> temp >> RHS;
+	UpdateStatementText();
+}
+

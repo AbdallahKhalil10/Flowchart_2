@@ -71,6 +71,24 @@ bool Write::IsOnStat(Point P)
 void Write::Save(ofstream& OutFile) {
 	OutFile << "Write Statement" << "    " << "Statement ID: " << ID << "    "
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "     "
-		<< "point_2_X : " << RightCorner.x << "  " << "point_2_Y : " << RightCorner.y << endl;
+		<< "point_2_X : " << RightCorner.x << "  " << "point_2_Y : " << RightCorner.y << "    "
+		<< "Variable_Write: " << txt << endl;
+
+}
+
+void Write::Load(ifstream& InFile) {
+	string temp;
+	int ID;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> ID;
+	SetID(ID);
+	InFile >> temp >> temp >> LeftCorner.x;
+	InFile >> temp >> temp >> LeftCorner.y;
+	InFile >> temp >> temp >> RightCorner.x;
+	InFile >> temp >> temp >> RightCorner.y;
+	InFile >> temp >> txt;
+	UpdateStatementText();
 
 }

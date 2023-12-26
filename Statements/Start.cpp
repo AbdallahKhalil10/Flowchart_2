@@ -59,5 +59,16 @@ bool Start::IsOnStat(Point P)
 void Start::Save(ofstream& OutFile) {
 	OutFile << "Start Statement" << "    " << "Statement ID: " << ID << "    "
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
+}
 
+void Start::Load(ifstream& InFile) {
+	string temp;
+	int ID;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> ID;
+	SetID(ID);
+	InFile >> temp >> temp >> LeftCorner.x;
+	InFile >> temp >> temp >> LeftCorner.y;
 }

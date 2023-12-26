@@ -20,11 +20,6 @@ int main()
 		AppManager.UpdateInterface();	
 
 	}while(ActType != EXIT);	
-	/// <summary>
-	/// 
-	/// 
-	/// </summary>
-	/// <returns></returns>
 	return 0;
 }
 

@@ -45,6 +45,7 @@ public:
 
 	int GetStatementCount();
 	int GetConnectorCount();
+	void ClearStatementList();
 	
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart

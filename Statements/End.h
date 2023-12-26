@@ -25,6 +25,7 @@ public:
 
 	virtual void Draw(Output* pOut) const;
 	virtual void Save(ofstream& OutFile);
+	virtual void Load(ifstream& InFile);
 
 
 	/// ////////////////////////////////////////////////////////////////////////////added

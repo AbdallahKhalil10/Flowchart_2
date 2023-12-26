@@ -61,3 +61,15 @@ void End::Save(ofstream& OutFile) {
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
 }
 
+void End::Load(ifstream& InFile) {
+	string temp;
+	int ID;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> ID;
+	SetID(ID);
+	InFile >> temp >> temp >> LeftCorner.x;
+	InFile >> temp >> temp >> LeftCorner.y;
+}
+

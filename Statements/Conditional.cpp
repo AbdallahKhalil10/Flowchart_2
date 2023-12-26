@@ -90,3 +90,22 @@ void Conditional::Save(ofstream & OutFile) {
 		<< "Left_operator : " << LHS << "    " << "Comparison_operator : " << OP << "    " << "Right_operator : " << RHS << endl;
 
 }
+
+void Conditional::Load(ifstream& InFile) {
+	string temp;
+	int ID;
+	InFile >> temp;
+	InFile >> temp; 
+	InFile >> temp;
+	InFile >> ID;
+	SetID(ID);
+	InFile >> temp >> temp >> LeftCorner.x;
+	InFile >> temp >> temp >> LeftCorner.y;
+	InFile >> temp >> temp >> RightCorner.x;
+	InFile >> temp >> temp >> RightCorner.y;
+	InFile >> temp >> temp >> LHS;
+	InFile >> temp >> temp >> OP;
+	InFile >> temp >> temp >> RHS;
+	UpdateStatementText();
+	
+}

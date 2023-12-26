@@ -8,6 +8,7 @@
 #include "Actions\AddWriteAssign.h"
 #include "Actions\AddConditionalAssign.h"
 #include "Actions\Save.h"
+#include "Actions\Load.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 #include "Actions\Select.h"
@@ -89,16 +90,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SAVE:
 			pAct = new Save(this);
 			break;
-
 		case SELECT:
 			pAct = new Select(this);
 			break;
-			
-
+		case LOAD:
+			pAct = new Load(this);
 			break;
-
 		case EXIT:
-			///create Exit Action here
 			break;
 		
 		case STATUS:
@@ -122,6 +120,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 int ApplicationManager::GetStatementCount() {
 	return StatCount;
+}
+
+void ApplicationManager::ClearStatementList() {
+	for (int i = 0; i < StatCount; i++)
+		delete StatList[i];
+	StatCount = 0;
 }
 int ApplicationManager::GetConnectorCount() {
 	return ConnCount;

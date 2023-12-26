@@ -141,7 +141,7 @@ void Output::ClearToolBar()
 
 void Output::ClearDrawArea()
 {
-	pWind->SetPen(RED, 2);
+	pWind->SetPen(WHITE, 2);
 	pWind->SetBrush(WHITE);
 	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.DrawingAreaWidth, UI.height - UI.StatusBarHeight);
 }

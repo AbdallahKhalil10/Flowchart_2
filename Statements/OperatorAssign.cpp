@@ -94,8 +94,26 @@ bool OperatorAssign::IsOnStat(Point P)
 }
 
 void OperatorAssign::Save(ofstream& OutFile) {
-	OutFile << "Operator Statement" << "    " << "Statement ID: " << ID << "    "
+	OutFile << "Operator_Assign Statement" << "    " << "Statement ID: " << ID << "    "
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
-		<< "Left_operator : " << LHS << "    " << "First_Right: " << RHS1 << "    " << "Arithmetic_Operator: " << OP << "    " << "Second_Right: " << RHS2 << endl;
+		<< "Left_operator : " << LHS << "    " << "First_Right : " << RHS1 << "    " 
+		<< "Arithmetic_Operator : " << OP << "    " << "Second_Right : " << RHS2 << endl;
 		
+}
+
+void OperatorAssign::Load(ifstream& InFile) {
+	string temp;
+	int ID;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> temp;
+	InFile >> ID;
+	SetID(ID);
+	InFile >> temp >> temp >> LeftCorner.x;
+	InFile >> temp >> temp >> LeftCorner.y;
+	InFile >> temp >> temp >> LHS;
+	InFile >> temp >> temp >> RHS1;
+	InFile >> temp >> temp >> OP;
+	InFile >> temp >> temp >> RHS2;
+	UpdateStatementText();
 }

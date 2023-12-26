@@ -30,6 +30,7 @@ public:
 	virtual bool IsOnStat(Point P);   // check if the point in the statement area or not
 
 	virtual void Save(ofstream& OutFile);
+	virtual void Load(ifstream& InFile);
 
 };
 
