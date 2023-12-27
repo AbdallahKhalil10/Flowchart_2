@@ -3,8 +3,8 @@
 #include <sstream>
 #include <fstream>
 
-using namespace std;
 
+using namespace std;
 
 Connector::Connector(Statement* Src, Statement* Dst)	
 //When a connector is created, it must have a source statement and a destination statement
@@ -60,20 +60,18 @@ void Connector::Draw(Output* pOut) const
 
 void Connector::Save(ofstream& OutFile) {
 
-	OutFile << "Conncetor ID: " << Connector_ID << " Source: " << SrcStat << " Destination: " << DstStat << endl;
+	OutFile << "Conncetor ID: " << Connector_ID << " Start.x: " << Start.x << " Start.y: " << Start.y << " End.x: " << End.x << " End.y: " << End.y << endl;
 }
 
 
-void Connector::Load(ifstream& InFile) {
+void Connector::Load(ifstream& InFile ) {
 	string temp;
 	int ID;
-	Statement* SORC;
-	Statement* DEST;
+	Point Start_temp;
+	Point End_temp;
 
-	InFile >> temp >> ID >> temp >> (Statement * )SORC >> temp >> (Statement*) DEST;
+	InFile >> temp >> ID >> temp >> Start.x >> temp >> Start.y >> temp >> End.x >> temp >> End.y;
 	Set_Connector_ID(ID);
-	setSrcStat(SORC);
-	setDstStat(DEST);
 
 }
 
