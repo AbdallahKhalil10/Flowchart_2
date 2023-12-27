@@ -7,6 +7,11 @@ using namespace std;
 Write::Write(Point Lcorner, string text)
 
 {
+
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "Write";
+
+
 	txt = text;
 
 	UpdateStatementText();
@@ -62,11 +67,11 @@ void Write::UpdateStatementText()
 
 bool Write::IsOnStat(Point P)
 {
-	if (P.x >= LeftCorner.x && P.x <= (LeftCorner.x + UI.ASSGN_WDTH))
-		if (P.y >= LeftCorner.y && P.y <= (LeftCorner.y + UI.ASSGN_HI))
-			return true;
+	if ((P.x < RightCorner.x) && (P.x > (RightCorner.x) - UI.ASSGN_WDTH) && (P.y > RightCorner.y) && (P.y < (RightCorner.y + UI.ASSGN_HI)))
+		return true;
 
 	return false;
+
 }
 void Write::Save(ofstream& OutFile) {
 	OutFile << "Write Statement" << "    " << "Statement ID: " << ID << "    "
@@ -91,4 +96,27 @@ void Write::Load(ifstream& InFile) {
 	InFile >> temp >> txt;
 	UpdateStatementText();
 
+}
+
+
+void Write::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* Write::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+
+Point Write::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
 }

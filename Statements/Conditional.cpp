@@ -7,6 +7,9 @@ using namespace std;
 Conditional::Conditional(Point Lcorner, string LeftHS, string Op, string RightHS)
 {
 
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "Conditional";
+
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	//       before passing it to the constructor of ValueAssign
 	LHS = LeftHS;
@@ -21,11 +24,7 @@ Conditional::Conditional(Point Lcorner, string LeftHS, string Op, string RightHS
 
 	pOutConn = NULL;	//No connectors yet
 
-	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH / 2;
-	Inlet.y = LeftCorner.y;
 
-	Outlet.x = Inlet.x;
-	Outlet.y = LeftCorner.y + UI.ASSGN_HI;
 }
 
 void Conditional::setLHS(const string& L)
@@ -74,15 +73,20 @@ void Conditional::UpdateStatementText()
 /// 
 /// //////////////////////////////////////////////////////////////////////////////// ADDED
 
+
 bool Conditional::IsOnStat(Point P)
 {
-	if (P.x >= LeftCorner.x && P.x <= (LeftCorner.x + UI.ASSGN_WDTH))
-		if (P.y >= LeftCorner.y && P.y <= (LeftCorner.y + UI.ASSGN_HI))
-			return true;
+	if( (P.x< RightCorner.x ) && (P.x >(RightCorner.x ) - UI.ASSGN_WDTH) &&( P.y < (RightCorner.y + 40)) &&( P.y > (RightCorner.y + 40) - UI.ASSGN_HI) )
+	return true;
 
-	return false;
+return false;
+
 
 }
+
+
+
+
 void Conditional::Save(ofstream & OutFile) {
 	OutFile << "Conditional Statement" << "    " << "Statement ID: " << ID << "    "
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << "    "
@@ -91,11 +95,12 @@ void Conditional::Save(ofstream & OutFile) {
 
 }
 
+
 void Conditional::Load(ifstream& InFile) {
 	string temp;
 	int ID;
 	InFile >> temp;
-	InFile >> temp; 
+	InFile >> temp;
 	InFile >> temp;
 	InFile >> ID;
 	SetID(ID);
@@ -107,5 +112,40 @@ void Conditional::Load(ifstream& InFile) {
 	InFile >> temp >> temp >> OP;
 	InFile >> temp >> temp >> RHS;
 	UpdateStatementText();
-	
+
+}
+
+void Conditional::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* Conditional::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+
+Point Conditional::GetConnectorPoint(int Order)
+{
+	if (Order == 3)  //outlet point for Yes branch
+	{
+		Outlet.x = LeftCorner.x;
+		Outlet.y = (LeftCorner.y + 40) - (UI.ASSGN_HI / 2);
+		return Outlet;
+	}
+	else if  (Order==4) //outlet point for no branch 
+	{
+		Outlet.x = RightCorner.x;
+		Outlet.y = (LeftCorner.y + 40) - (UI.ASSGN_HI / 2);
+		return Outlet;
+	}
+	else 
+	{
+		Inlet.x = (RightCorner.x) - UI.ASSGN_WDTH / 2;
+		Inlet.y = (LeftCorner.y + 40) - UI.ASSGN_HI;
+		return Inlet;
+	}
+
 }

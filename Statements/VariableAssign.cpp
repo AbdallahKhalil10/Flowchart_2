@@ -6,6 +6,11 @@ using namespace std;
 
 VariableAssign::VariableAssign(Point Lcorner, string LeftHS, string RightHS)
 {
+
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "VariableAssign";
+
+
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	//       before passing it to the constructor of ValueAssign
 	LHS = LeftHS;
@@ -75,6 +80,7 @@ void VariableAssign::Save(ofstream& OutFile) {
 
 }
 
+
 void VariableAssign::Load(ifstream& InFile) {
 	string temp;
 	int ID;
@@ -88,5 +94,25 @@ void VariableAssign::Load(ifstream& InFile) {
 	InFile >> temp >> temp >> LHS;
 	InFile >> temp >> temp >> RHS;
 	UpdateStatementText();
+}
+
+void VariableAssign::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+Connector* VariableAssign::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+Point VariableAssign::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
 }
 

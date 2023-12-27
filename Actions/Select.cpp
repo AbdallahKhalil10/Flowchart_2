@@ -28,20 +28,46 @@ void Select::ReadActionParameters()
 	pOut->ClearStatusBar();
 
 	Stat = pManager->GetStatement(Position);
-	//Conn = pManager->GetConnector(Position);
-	pManager->UnSelect();
-	if (Stat != NULL)
+	Conn = pManager->GetConnector(Position);
+
+	
+
+    if (Stat != NULL)
 	{
-		pManager->SetSelectedStatement(Stat);
-		Stat->SetSelected(true);
-	}
-	/*
+		if (Stat->IsSelected() == false) 
+		{
+			pManager->UnSelect();
+			pManager->SetSelectedStatement(Stat);
+			Stat->SetSelected(true);
+		}
+		else if (Stat->IsSelected() != false) /// if the statment is already selected it will be unselected
+		{
+			Stat->SetSelected(false);
+			pManager->UnSelect();
+		}
+	 }
+
 	else if (Conn != NULL)
 	{
-		pManager->SetSelectedConnector(Conn);
-		Conn->SetSelected(true);
+
+		if (Conn->IsSelected() == false)
+		{
+			pManager->UnSelect();
+			pManager->SetSelectedConnector(Conn);
+			Conn->SetSelected(true);
+		}
+		else if (Conn->IsSelected() != false)  
+		{
+			Conn->SetSelected(false);
+			pManager->UnSelect();
+		}
+
 	}
-	*/
+	
+	else {
+		pManager->UnSelect();
+	}
+	
 }
 void Select::Execute()
 {
@@ -52,10 +78,20 @@ void Select::Execute()
 	Output* pOut = pManager->GetOutput();
 
 
-	if (Stat != NULL)
-		//pOut->PrintMessage("selected");
-		Stat->PrintInfo(pOut);
+	if (Stat != NULL) {
+		
+		pOut->PrintMessage(Stat->GetStatmentName());
+	
+	}
+
+	else if (Conn != NULL) {
+
+		pOut->PrintMessage("Connector is selected");
+
+	}
 	else
+	{
 		pOut->PrintMessage("Nothing selected");
-		//pOut->ClearStatusBar();
+	
+	}
 }

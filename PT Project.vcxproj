@@ -275,7 +275,12 @@
 	  <ClCompile Include="Actions\AddConditionalAssign.cpp" />
 	  <ClCompile Include="Actions\Select.cpp" />
 	  <ClCompile Include="Actions\Save.cpp" />
+
 	  <ClCompile Include="Actions\Load.cpp" />
+
+	  <ClCompile Include="Actions\AddConnector.cpp" />
+	  
+
     <ClCompile Include="ApplicationManager.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -324,7 +329,6 @@
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\AddValueAssign.h" />
     <ClInclude Include="ApplicationManager.h" />
-    <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />

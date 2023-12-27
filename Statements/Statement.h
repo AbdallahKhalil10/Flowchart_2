@@ -15,11 +15,14 @@ protected:
 	int ID;			//Each Statement has an ID --> must be unique
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the folwchart
+
+
 	
 	
-	/////////////////////////////////////////////////////////////////////////////////////////added
-	string	Comment;
-	////////////////////////
+	/// //////////////////////////////////////////////////////////////////////////////////////////added
+	string StatName;// name of statement 
+	////////////////////////////////////////////////////////////////////////////////////////////
+	
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
@@ -31,7 +34,7 @@ public:
 	bool IsSelected() const;
 	void SetID(int num);
 	virtual void Save(ofstream& OutFile) = 0;
-	virtual void Load(ifstream& InFile) {};
+	virtual void Load(ifstream& InFile) =0;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	
@@ -56,9 +59,19 @@ public:
 
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////added
-	void PrintInfo(Output* pOut);
 
 	virtual bool IsOnStat(Point P) = 0;  // check if the point in the statement area or not
+
+	virtual void setStatConnector(Connector* Conn) = 0;
+
+	virtual Connector* getStatConnector(int ConnType) = 0;	//get the exit connector of the statement
+
+	virtual Point GetConnectorPoint(int Order) = 0;//get connection point if order=0 > return inlet  ,order=1 > return outlet
+
+	string GetStatmentName();
+
+	void Set_Connector_ID(int num);
+
 	///////////////////////////////////
 
 };

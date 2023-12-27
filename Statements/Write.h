@@ -8,7 +8,7 @@ class Write : public Statement
 private:
 	string txt;
 
-	Connector* pOutConn;
+	Connector *pOutConn;
 
 	Point Inlet;	//A point where connections enters this statement 
 	//It's used as the (End) point of the (Input) connectors
@@ -33,6 +33,12 @@ public:
 
 	/// ////////////////////////////////////////////////////////////////////////////added
 	virtual bool IsOnStat(Point P);   // check if the point in the statement area or not
+
+	void setStatConnector(Connector* Conn);
+
+	virtual Connector* getStatConnector(int ConnType);
+	virtual Point GetConnectorPoint(int Order);
+
 };
 
 #endif

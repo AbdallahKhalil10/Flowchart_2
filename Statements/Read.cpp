@@ -7,6 +7,9 @@ using namespace std;
 Read::Read(Point Lcorner, string text)
 
 {
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "Read";
+
 	txt = text;
 
 	UpdateStatementText();
@@ -61,13 +64,14 @@ void Read::UpdateStatementText()
 /// 
 /// //////////////////////////////////////////////////////////////////////////////// ADDED
 
+
+
 bool Read::IsOnStat(Point P)
 {
-	if (P.x >= LeftCorner.x && P.x <= (LeftCorner.x + UI.ASSGN_WDTH))
-		if (P.y >= LeftCorner.y && P.y <= (LeftCorner.y + UI.ASSGN_HI))
-			return true;
-
-	return false;
+	if ((P.x < RightCorner.x ) && (P.x > (RightCorner.x ) - UI.ASSGN_WDTH ) && (P.y > RightCorner.y) && (P.y < (RightCorner.y + UI.ASSGN_HI)))
+		return true;
+		
+    return false;
 
 }
 void Read::Save(ofstream& OutFile) {
@@ -93,4 +97,26 @@ void Read::Load(ifstream& InFile) {
 	InFile >> temp >> txt;
 	UpdateStatementText();
 
+}
+
+
+void Read::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* Read::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+Point Read::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
 }

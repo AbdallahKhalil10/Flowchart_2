@@ -12,6 +12,8 @@
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 #include "Actions\Select.h"
+#include "Actions\AddConnector.h"
+
 
 
 //Constructor
@@ -24,8 +26,12 @@ ApplicationManager::ApplicationManager()
 	StatCount = 0;
 	ConnCount = 0;
 	Unique_ID = 0;
+	Connector_Unique_ID = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
+
+	//////////////////////////////////////////////////////////////added
+	pSelectedConn = NULL; 
 	
 	//Create an array of Statement pointers and set them to NULL		
 	for(int i=0; i<MaxCount; i++)
@@ -93,9 +99,14 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new Select(this);
 			break;
+
 		case LOAD:
 			pAct = new Load(this);
 			break;
+		case ADD_CONNECTOR:
+			pAct = new AddConnector(this);
+			break;
+
 		case EXIT:
 			break;
 		
@@ -227,7 +238,7 @@ ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<StatCount; i++)
 		delete StatList[i];
-	for(int i=0; i<StatCount; i++)
+	for(int i=0; i<ConnCount; i++)
 		delete ConnList[i];
 	delete pIn;
 	delete pOut;
@@ -236,7 +247,51 @@ ApplicationManager::~ApplicationManager()
 
 
 
+
+
+
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////  Added
+
+
+void ApplicationManager::SetConnector(Connector* pConn)
+{
+	if (ConnCount < MaxCount)
+		Connector_Unique_ID++;
+	    pConn->Set_Connector_ID(Connector_Unique_ID);
+		ConnList[ConnCount++] = pConn;
+
+}
+
+
+
+//returns the connector that is 
+Connector* ApplicationManager::GetConnector(Point P) const
+{
+
+	for (int i = 0; i < ConnCount; i++)
+		if (ConnList[i]->IsOnConnect(P))
+			return ConnList[i];
+
+	return NULL;
+}
+
+
+Connector* ApplicationManager::GetSelectedConnector() const
+{
+	return pSelectedConn;
+}
+
+void ApplicationManager::SetSelectedConnector(Connector* pConn)
+{
+	pSelectedConn = pConn;
+}
+
+
+
+
 void ApplicationManager::UnSelect()
 {
 	if (GetSelectedStatement() != NULL)
@@ -246,15 +301,26 @@ void ApplicationManager::UnSelect()
 		SetSelectedStatement(NULL);
 
 	}
-	/*
-	else if (GetSelectedSConnector() != NULL)
+	
+	else if (GetSelectedConnector() != NULL)
 	{
-		GetSelectedSConnector()->SetSelected(false);
+		GetSelectedConnector()->SetSelected(false);
 		SetSelectedConnector(NULL);
 
 	}
-	*/
+	
 
 	UpdateInterface();
 
 }
+
+
+
+
+
+
+
+
+
+
+

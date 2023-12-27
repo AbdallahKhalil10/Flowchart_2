@@ -4,7 +4,11 @@ Statement::Statement()
 { 
 	//TODO: set the ID with a unique value
 	Text = "";
-	Selected = false;	
+	Selected = false;
+
+	
+	/// /////////////////////////////////////////////////////////////////////////ADDED
+	StatName = "";
 	
 	
 }
@@ -21,14 +25,17 @@ bool Statement::IsSelected() const
 
 /// ///////////////////////////////////////////////////////////////////added
 
-void Statement::PrintInfo(Output* pOut)
+string Statement::GetStatmentName()
 {
-	pOut->PrintMessage(Text + " // " + Comment);
-	//pOut->PrintMessage("selected " );
+	return StatName;
+
 }
 
 void Statement::SetID(int num)
 {
 	ID = num;
 }
+
+
+
 

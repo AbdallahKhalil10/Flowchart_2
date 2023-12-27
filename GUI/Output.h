@@ -32,7 +32,7 @@ public:
 	void DrawStartStopStatements(Point Left, int width, int height, string Text, bool Selected = false);
 	void DrawConditionalStatement(Point Right, int width, int height, string Text, bool Selected = false);
 	void DrawReadWriteStatement(Point Right, int width, int height, string Text, bool Selected = false);
-	void DrawConnector(Point left, Point right, bool Selected = false);
+	void DrawConnector(Point start, Point end, bool Selected = false);
 	//TODO: Add similar functions for drawing all other statements.
 	//		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 	//		Decide the parameters that should be passed to each of them

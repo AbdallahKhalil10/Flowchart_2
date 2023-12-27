@@ -31,7 +31,9 @@ public:
 
 	/// ////////////////////////////////////////////////////////////////////////////added
 	virtual bool IsOnStat(Point P);   // check if the point in the statement area or not
-
+	void setStatConnector(Connector* Conn);
+	virtual Connector* getStatConnector(int ConnType);
+	virtual Point GetConnectorPoint(int Order);
 };
 
 #endif

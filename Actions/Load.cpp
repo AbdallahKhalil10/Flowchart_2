@@ -7,6 +7,7 @@
 #include "..\Statements\ValueAssign.h"
 #include "..\Statements\VariableAssign.h"
 #include "..\Statements\OperatorAssign.h"
+#include "..\Connector.h"
 
 
 
@@ -24,7 +25,7 @@ using namespace std;
 Load::Load(ApplicationManager* pAppManager) :Action(pAppManager)
 {
 	state = NULL;
-	conn = NULL;
+	conn = NULL; //////////////added 
 
 }
 
@@ -46,10 +47,14 @@ void Load::Execute()
 	ReadActionParameters();
 	ifstream saved_file{ FileName };
 	int count_statement;
+	int count_connector;
+	int connector_ID;
 	string statement_name;
 	Point temp_point;
+	Statement * temp_stat=NULL;
 	temp_point.x = -1;
 	temp_point.y = -1;
+	
 	string temp = "";
 
 	pManager->ClearStatementList();
@@ -98,6 +103,16 @@ void Load::Execute()
 		}
 
 	}
+
+	saved_file >> count_connector;
+	for (int i = 0; i < count_connector; i++) {
+		saved_file >> connector_ID;
+
+		Connector* Conn = new Connector(temp_stat, temp_stat);
+		Conn->Load(saved_file);
+		pManager->SetConnector(Conn);
+	}
+
 	pOut->PrintMessage("Loaded Successfully!!");
 	saved_file.close();
 

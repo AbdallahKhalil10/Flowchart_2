@@ -210,7 +210,7 @@ void Output::DrawStartStopStatements(Point Left, int width, int height, string T
 
 void Output::DrawReadWriteStatement(Point Right, int width, int height, string Text, bool Selected) {
 
-	int x[4] = { Right.x + 100, (Right.x + 100) - width + 25 , (Right.x + 100) - width , (Right.x + 100) - 25 };
+	int x[4] = { Right.x , (Right.x ) - width + 25 , (Right.x ) - width , (Right.x ) - 25 };
 	int y[4] = { Right.y, Right.y, Right.y + height, Right.y + height };
 
 	if (Selected) {
@@ -225,13 +225,13 @@ void Output::DrawReadWriteStatement(Point Right, int width, int height, string T
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString((Right.x + 60) - width / 2, Right.y + height / 4, Text);
+	pWind->DrawString((Right.x) - width / 2 -20, Right.y + height / 4, Text);
 
 }
 
 void Output::DrawConditionalStatement(Point Right, int width, int height, string Text, bool Selected) {
 
-	int x[4] = { Right.x + 100, (Right.x + 100) - width / 2, (Right.x + 100) - width, (Right.x + 100) - width / 2 };
+	int x[4] = { Right.x , (Right.x ) - width / 2, (Right.x ) - width, (Right.x ) - width / 2 };
 	int y[4] = { (Right.y+40) - height/2, (Right.y+40), (Right.y+40) - height/2, (Right.y+40) - height };
 
 	if (Selected) {
@@ -246,24 +246,81 @@ void Output::DrawConditionalStatement(Point Right, int width, int height, string
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString((Right.x + 80) - width/2 , Right.y, Text);
+	pWind->DrawString((Right.x) - width/2 -10, Right.y, Text);
 
+	pWind->DrawString(Right.x+10, Right.y-10, "NO");
+	pWind->DrawString(Right.x - width- 30, Right.y - 10, "YES");
 }
 
 
-void Output::DrawConnector(Point left, Point right, bool Selected)
+
+void Output::DrawConnector(Point start, Point end, bool Selected)
 {
+
+
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
 	else
 		pWind->SetPen(UI.DrawColor, 3);	//use normal color
 
-	//Draw the line
-	pWind->DrawLine(left.x, left.y, right.x, right.y);
 
-	//Draw the arrow triangle 
-	pWind->DrawTriangle(right.x, right.y + 10, right.x, right.y - 10, right.x + 10, right.y, FILLED);
-	//DrawTriangle(X_fo2, Y_fo2, X_ta7t, Y_ta7t, X_RIGHT, Y_RIGHT)
+	//up arrow
+	if (end.y > start.y && end.x == start.x)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+
+		//draw arrow line
+		pWind->DrawLine(end.x, end.y, end.x + 10, end.y - 10);
+		pWind->DrawLine(end.x, end.y, end.x - 10, end.y - 10);
+	}
+	// down arrow
+	else if (end.y < start.y && end.x == start.x)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+		//draw arrow line
+		pWind->DrawLine(end.x, end.y, end.x + 10, end.y + 10);
+		pWind->DrawLine(end.x, end.y, end.x - 10, end.y + 10);
+	}
+	/// Down arrow
+	else if ((end.y > start.y + 20 && end.x > start.x) || (end.y > start.y + 20 && end.x < start.x))
+	{
+		pWind->DrawLine(start.x, start.y, end.x, start.y);
+		pWind->DrawLine(end.x, start.y, end.x, end.y);
+		//draw arrow line
+		pWind->DrawLine(end.x, end.y, end.x + 10, end.y - 10);
+		pWind->DrawLine(end.x, end.y, end.x - 10, end.y - 10);
+	}
+	/// Up arrow
+	else if ((end.y + 20 < start.y && end.x > start.x) || (end.y + 20 < start.y && end.x < start.x))
+	{
+		pWind->DrawLine(start.x, start.y, end.x, start.y);
+		pWind->DrawLine(end.x, start.y, end.x, end.y);
+		//draw arrow line
+		pWind->DrawLine(end.x, end.y, end.x + 10, end.y + 10);
+		pWind->DrawLine(end.x, end.y, end.x - 10, end.y + 10);
+	}
+
+	/// right arrow
+	else if ((end.y < start.y + 20 && end.x > start.x) || (end.y < start.y + 20 && end.x > start.x))
+	{
+		pWind->DrawLine(start.x, start.y, end.x, start.y);
+		pWind->DrawLine(end.x, start.y, end.x, end.y);
+		//draw arrow line
+		pWind->DrawLine(end.x, end.y, end.x - 10, end.y - 10);
+		pWind->DrawLine(end.x, end.y, end.x - 10, end.y + 10);
+	}
+
+	/////// left arrow
+	else if ((end.y + 20 > start.y && end.x < start.x) || (end.y + 20 > start.y && end.x < start.x))
+	{
+		pWind->DrawLine(start.x, start.y, end.x, start.y);
+		pWind->DrawLine(end.x, start.y, end.x, end.y);
+		//draw arrow line
+		pWind->DrawLine(end.x, end.y, end.x + 10, end.y - 10);
+		pWind->DrawLine(end.x, end.y, end.x + 10, end.y + 10);
+	}
+
+
 }
 
 

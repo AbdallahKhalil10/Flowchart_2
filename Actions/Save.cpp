@@ -15,6 +15,7 @@ using namespace std;
 Save::Save(ApplicationManager* pAppManager) :Action(pAppManager)
 {
 	state = NULL;
+	Conn = NULL; ///////////////////////added
 
 }
 
@@ -39,12 +40,16 @@ void Save::Execute()
 		state = pManager->GetStatementList(i);
 		state->Save(saved_file);
 	}
-	/*saved_file << pManager->GetConnectorCount() << endl;
+
+
+
+	saved_file << pManager->GetConnectorCount() << endl;
 	for (int i = 0; i < pManager->GetConnectorCount(); i++)
 	{
 		Conn = pManager->GetConnectorList(i);
 		Conn->Save(saved_file);
-	}*/
+	}
+
 	pOut->PrintMessage("Saved Successfully !!");
 	saved_file.close();
 }

@@ -32,6 +32,11 @@ public:
 	virtual void Save(ofstream& OutFile);
 	virtual void Load(ifstream& InFile);
 
+	void setStatConnector(Connector* Conn);
+
+	virtual Connector* getStatConnector(int ConnType);
+	virtual Point GetConnectorPoint(int Order);
+
 };
 
 #endif

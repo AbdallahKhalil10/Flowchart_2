@@ -177,6 +177,7 @@
 	  </ClCompile>
 	   <ClCompile Include="Actions\AddReadAssign.cpp">
 		<Filter>Action Classes</Filter>
+	
 	  </ClCompile>
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="GUI\Input.cpp">
@@ -261,9 +262,11 @@
     </ClInclude>
     <ClInclude Include="Statements\ValueAssign.h">
       <Filter>Statements</Filter>
+
     </ClInclude>
     <ClInclude Include="Actions\AddValueAssign.h">
       <Filter>Action Classes</Filter>
+
     </ClInclude>
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="HelperFn.h" />

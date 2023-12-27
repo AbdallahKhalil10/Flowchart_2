@@ -6,7 +6,11 @@ using namespace std;
 
 Start::Start(Point Lcorner, string text)
 
-{
+{ 
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "Start";
+
+
 	txt = text;
 
 	UpdateStatementText();
@@ -61,6 +65,7 @@ void Start::Save(ofstream& OutFile) {
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
 }
 
+
 void Start::Load(ifstream& InFile) {
 	string temp;
 	int ID;
@@ -71,4 +76,28 @@ void Start::Load(ifstream& InFile) {
 	SetID(ID);
 	InFile >> temp >> temp >> LeftCorner.x;
 	InFile >> temp >> temp >> LeftCorner.y;
+
+}
+
+
+void Start::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* Start::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+Point Start::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
+
 }

@@ -6,6 +6,11 @@ using namespace std;
 
 ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 {
+
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "ValueAssign";
+
+
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	//       before passing it to the constructor of ValueAssign
 	LHS = LeftHS;
@@ -91,4 +96,27 @@ void ValueAssign::Load(ifstream& InFile) {
 	InFile >> temp >> temp >> LHS;
 	InFile >> temp >> temp >> RHS;
 	UpdateStatementText();
+}
+
+
+
+void ValueAssign::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* ValueAssign::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+Point ValueAssign::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
 }

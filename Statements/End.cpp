@@ -6,7 +6,10 @@ using namespace std;
 
 End::End(Point Lcorner, string text)
 
-{
+{////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "End";
+
+
 	txt = text;
 
 	UpdateStatementText();
@@ -61,6 +64,7 @@ void End::Save(ofstream& OutFile) {
 		<< "point_1_X : " << LeftCorner.x << "  " << "point_1_Y : " << LeftCorner.y << endl;
 }
 
+
 void End::Load(ifstream& InFile) {
 	string temp;
 	int ID;
@@ -71,5 +75,29 @@ void End::Load(ifstream& InFile) {
 	SetID(ID);
 	InFile >> temp >> temp >> LeftCorner.x;
 	InFile >> temp >> temp >> LeftCorner.y;
+}
+
+
+
+void End::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* End::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+
+Point End::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
 }
 

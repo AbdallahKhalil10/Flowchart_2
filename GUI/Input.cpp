@@ -41,7 +41,7 @@ double Input::GetValue(Output* pO) const	// Reads a double value from the user
 	///TODO: add code to read a double value from the user and assign it to D
 	string D;
 	do {
-		pO->PrintMessage("Please enter a value: ");
+		//pO->PrintMessage("Please enter a value: ");
 		D = GetString(pO);
 		if (IsValue(D)) {
 			return stod(D);

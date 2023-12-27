@@ -7,6 +7,9 @@ using namespace std;
 OperatorAssign::OperatorAssign(Point Lcorner, string LeftHS, string RightHS1, string Op, string RightHS2)
 
 {
+	////////////////////////////////////////////////////////////////////////////////////////added
+	StatName = "OperatorAssign";
+
 	LHS = LeftHS;
 	RHS1 = RightHS1;
 	OP = Op;
@@ -101,6 +104,7 @@ void OperatorAssign::Save(ofstream& OutFile) {
 		
 }
 
+
 void OperatorAssign::Load(ifstream& InFile) {
 	string temp;
 	int ID;
@@ -116,4 +120,27 @@ void OperatorAssign::Load(ifstream& InFile) {
 	InFile >> temp >> temp >> OP;
 	InFile >> temp >> temp >> RHS2;
 	UpdateStatementText();
+}
+
+
+void OperatorAssign::setStatConnector(Connector* Conn)
+{
+	pOutConn = Conn;
+}
+
+
+Connector* OperatorAssign::getStatConnector(int ConnType)
+{
+	return pOutConn;
+}
+
+Point OperatorAssign::GetConnectorPoint(int Order)
+{
+	if (Order == 0)
+		return Outlet;
+	else
+	{
+		return Inlet;
+	}
+
 }

@@ -16,8 +16,9 @@ class ApplicationManager
 private:
 	
 	int StatCount;		//Actual number of statements
-	int ConnCount;
-	int Unique_ID;   //Actual number of connectors
+	int ConnCount;      //Actual number of connectors
+	int Unique_ID;  
+	int Connector_Unique_ID;
 	Statement* StatList[MaxCount];	//List of all statements (Array of pointers)
 	Connector* ConnList[MaxCount];	//List of all connectors (Array of pointers)
 
@@ -25,6 +26,12 @@ private:
 	                          //you can set and get this pointer
 	Statement *pClipboard;    //a pointer to the last copied/cut statement
 	                          //you can set and get this pointer
+
+
+	//////////////////////////////////////////////////////////////////////////////////////    added
+	Connector* pSelectedConn; //a pointer to the last selected Connector  
+	///////////////////////////////////////////////////////////////////////////
+	 
 
 	//Pointers to Input and Output classes
 	Input *pIn;
@@ -53,9 +60,10 @@ public:
 	                                        //TODO: Complete its implementation 
 	                                        //      WITHOUT breaking class responsibilities
 
-	void AddConnector(Connector* pConn);    //Adds a new Connector to the Flowchart
-	Connector *GetConnector(Point P) const;	//search for a Connector where point P belongs
-
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////// commented this 
+	//void AddConnector(Connector* pConn);    //Adds a new Connector to the Flowchart
+	//Connector *GetConnector(Point P) const;	//search for a Connector where point P belongs
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Note: you should use the following 4 functions 
 	//       in order not to break class responsibilities (especially in copy, cut and paste)
 	Statement *GetSelectedStatement() const;	 //Returns the selected Statement
@@ -78,7 +86,11 @@ public:
 
 	////////////////////////////////////////////////////////////////////////////////////////////////added
 	void UnSelect();
-	Point getPoint();
+	
+	void SetConnector(Connector* pConn);
+	Connector* GetConnector(Point P) const;
+	Connector* GetSelectedConnector() const;
+	void SetSelectedConnector(Connector* pConn);
 };
 
 #endif
