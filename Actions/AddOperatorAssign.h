@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef ADD_OPERATOR_ASSIGN_H
 #define ADD_OPEARATOR_ASSIGN_H
 

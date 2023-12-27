@@ -3,8 +3,8 @@
 #include <sstream>
 #include <fstream>
 
-
 using namespace std;
+
 
 Connector::Connector(Statement* Src, Statement* Dst)	
 //When a connector is created, it must have a source statement and a destination statement
@@ -64,7 +64,7 @@ void Connector::Save(ofstream& OutFile) {
 }
 
 
-void Connector::Load(ifstream& InFile ) {
+void Connector::Load(ifstream& InFile) {
 	string temp;
 	int ID;
 	Point Start_temp;

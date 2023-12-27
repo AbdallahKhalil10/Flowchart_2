@@ -26,6 +26,13 @@ Start::Start(Point Lcorner, string text)
 	Outlet.y = LeftCorner.y + UI.ASSGN_HI;
 }
 
+string Start::GetStartText() {
+	return StatName;
+}
+Point Start::GetStartPoint() {
+	return LeftCorner;
+}
+
 
 
 void Start::Draw(Output* pOut) const

@@ -43,7 +43,6 @@ void Load::ReadActionParameters()
 void Load::Execute()
 {
 	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
 	string line;
 	ReadActionParameters();
 	ifstream saved_file{ FileName };
@@ -105,7 +104,6 @@ void Load::Execute()
 
 	}
 
-	
 	saved_file >> count_connector;
 	for (int i = 0; i < count_connector; i++) {
 		saved_file >> temp;
@@ -113,8 +111,6 @@ void Load::Execute()
 		Connector* Conn = new Connector(temp_stat, temp_stat);
 		Conn->Load(saved_file);
 		pManager->SetConnector(Conn);
-	
-		
 
 	}
 

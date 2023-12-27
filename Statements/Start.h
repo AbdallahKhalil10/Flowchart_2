@@ -22,6 +22,8 @@ private:
 
 public:
 	Start(Point Lcorner, string text);
+	string GetStartText();
+	Point GetStartPoint();
 
 	virtual void Draw(Output* pOut) const;
 

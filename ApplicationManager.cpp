@@ -9,6 +9,8 @@
 #include "Actions\AddConditionalAssign.h"
 #include "Actions\Save.h"
 #include "Actions\Load.h"
+#include "Actions\Copy.h"
+#include "Actions\Paste.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 #include "Actions\Select.h"
@@ -96,12 +98,17 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SAVE:
 			pAct = new Save(this);
 			break;
-		case SELECT:
-			pAct = new Select(this);
-			break;
-
 		case LOAD:
 			pAct = new Load(this);
+			break;
+		case COPY:
+			pAct = new Copy(this);
+			break;
+		case PASTE:
+			pAct = new Paste(this);
+			break;
+		case SELECT:
+			pAct = new Select(this);
 			break;
 		case ADD_CONNECTOR:
 			pAct = new AddConnector(this);
