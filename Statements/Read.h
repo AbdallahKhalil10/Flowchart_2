@@ -34,6 +34,10 @@ public:
 	void setStatConnector(Connector* Conn);
 	virtual Connector* getStatConnector(int ConnType);
 	virtual Point GetConnectorPoint(int Order);
+
+
+	string getText();
+
 };
 
 #endif

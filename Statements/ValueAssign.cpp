@@ -120,3 +120,12 @@ Point ValueAssign::GetConnectorPoint(int Order)
 		return Inlet;
 	}
 }
+
+string ValueAssign::getLHS()
+{
+	return LHS;
+}
+double ValueAssign::getRHS()
+{
+	return RHS;
+}

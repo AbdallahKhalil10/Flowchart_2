@@ -1,0 +1,14 @@
+6
+Start Statement    Statement ID: 1    point_1_X : 392  point_1_Y : 97
+Conditional Statement    Statement ID: 2    point_1_X : 380  point_1_Y : 240    point_2_X : 530  point_2_Y : 240    Left_operator : 100    Comparison_operator : >    Right_operator : 50
+Read Statement    Statement ID: 3    point_1_X : 163  point_1_Y : 316    point_2_X : 313  point_2_Y : 316   Variable_read: PRICE
+Value_Assign Statement    Statement ID: 4    point_1_X : 132  point_1_Y : 420    variable name: Price    value assigned: 1
+Write Statement    Statement ID: 5    point_1_X : 371  point_1_Y : 467     point_2_X : 521  point_2_Y : 467    Variable_Write: Price
+End Statement    Statement ID: 7    point_1_X : 601  point_1_Y : 521
+6
+Conncetor ID: 1 Start.x: 530 Start.y: 255 End.x: 676 End.y: 521
+Conncetor ID: 2 Start.x: 380 Start.y: 255 End.x: 238 End.y: 316
+Conncetor ID: 3 Start.x: 207 Start.y: 470 End.x: 446 End.y: 467
+Conncetor ID: 4 Start.x: 238 Start.y: 366 End.x: 207 End.y: 420
+Conncetor ID: 5 Start.x: 446 Start.y: 517 End.x: 676 End.y: 521
+Conncetor ID: 6 Start.x: 467 Start.y: 147 End.x: 455 End.y: 230

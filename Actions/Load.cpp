@@ -105,7 +105,8 @@ void Load::Execute()
 	}
 
 	saved_file >> count_connector;
-	for (int i = 0; i < count_connector; i++) {
+	for (int i = 0; i < count_connector; i++) 
+	{
 		saved_file >> temp;
 
 		Connector* Conn = new Connector(temp_stat, temp_stat);

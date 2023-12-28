@@ -280,6 +280,8 @@
 	  <ClCompile Include="Actions\Paste.cpp" />
 
 	  <ClCompile Include="Actions\AddConnector.cpp" />
+	  <ClCompile Include="Actions\Validate.cpp" />
+	  <ClCompile Include="Actions\Delete.cpp" />
 	  
 
     <ClCompile Include="ApplicationManager.cpp">

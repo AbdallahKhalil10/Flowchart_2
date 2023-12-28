@@ -120,3 +120,8 @@ Point Read::GetConnectorPoint(int Order)
 		return Inlet;
 	}
 }
+
+string Read::getText()
+{
+	return txt;
+}

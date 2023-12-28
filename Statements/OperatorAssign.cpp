@@ -144,3 +144,20 @@ Point OperatorAssign::GetConnectorPoint(int Order)
 	}
 
 }
+
+string OperatorAssign::getLHS()
+{
+	return LHS;
+}
+string OperatorAssign::getRHS1()
+{
+	return RHS1;
+}
+string OperatorAssign::getOperator()
+{
+	return OP;
+}
+string OperatorAssign::getRHS2()
+{
+	return RHS2;
+}

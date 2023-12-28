@@ -116,3 +116,12 @@ Point VariableAssign::GetConnectorPoint(int Order)
 	}
 }
 
+
+string VariableAssign::getLHS()
+{
+	return LHS;
+}
+string VariableAssign::getRHS()
+{
+	return RHS;
+}

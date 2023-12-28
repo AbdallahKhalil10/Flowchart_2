@@ -120,3 +120,10 @@ Point Write::GetConnectorPoint(int Order)
 		return Inlet;
 	}
 }
+
+
+
+string Write::getText()
+{
+	return txt;
+}

@@ -1,5 +1,5 @@
-#ifndef PASTE_H
-#define PASTE_H
+#ifndef DELETE_H
+#define DELETE_H
 
 #include "Action.h"
 #include "AddStart.h"
@@ -13,14 +13,16 @@
 #include "..\Statements\Statement.h"
 
 
-class Paste : public Action
+class Delete : public Action
 {
 private:
-	Point P;
+
 	Statement* state;
+	Connector* Conn;
+	Point P;
 
 public:
-	Paste(ApplicationManager* pAppManager);
+	Delete(ApplicationManager* pAppManager);
 
 	//Read Assignemt statements position
 	virtual void ReadActionParameters();

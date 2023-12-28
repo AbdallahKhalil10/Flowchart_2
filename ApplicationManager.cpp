@@ -15,6 +15,8 @@
 #include "GUI\Output.h"
 #include "Actions\Select.h"
 #include "Actions\AddConnector.h"
+#include "Actions\Validate.h"
+#include "Actions\Delete.h"
 
 
 
@@ -29,6 +31,8 @@ ApplicationManager::ApplicationManager()
 	ConnCount = 0;
 	Unique_ID = 0;
 	Connector_Unique_ID = 0;
+	StatDeleted_count = 0;
+	ConnDeleted_count = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
 
@@ -113,12 +117,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_CONNECTOR:
 			pAct = new AddConnector(this);
 			break;
+		case DEL:
+			pAct = new Delete(this);
+			break;
+
+		case VALIDATE:
+			pAct = new Validate(this);
+			break;
 
 		case EXIT:
 			break;
-		
-		case STATUS:
-			return;
+
+
 	}
 	
 	//Execute the created action
@@ -243,12 +253,23 @@ Output *ApplicationManager::GetOutput() const
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
+	if (StatDeleted_count > 0)
+	{
+		StatCount += StatDeleted_count;
+	}
+
+	if (ConnDeleted_count > 0)
+	{
+		ConnCount += ConnDeleted_count;
+	}
+	
 	for(int i=0; i<StatCount; i++)
 		delete StatList[i];
 	for(int i=0; i<ConnCount; i++)
 		delete ConnList[i];
 	delete pIn;
 	delete pOut;
+	
 	
 }
 
@@ -324,10 +345,56 @@ void ApplicationManager::UnSelect()
 
 
 
+void ApplicationManager::SetStatementCount(int count)
+{
+	StatCount=count;
+}
 
 
 
 
+void ApplicationManager::DeleteStatement(int index) {
 
 
+	if (index < StatCount - 1) {
+
+		StatList[index] = StatList[StatCount - 1];
+
+		//delete StatList[StatCount - 1];
+
+		StatCount--;
+		StatDeleted_count++;
+	} 
+	else if (index == StatCount - 1)
+	{
+		delete StatList[StatCount - 1];
+		StatCount--;
+		StatDeleted_count++;
+	}
+	else {
+
+	}
+}
+
+
+void ApplicationManager::DeleteConnector(int index) {
+
+
+	if (index < ConnCount - 1) {
+
+		ConnList[index] = ConnList[ConnCount - 1];
+
+		ConnCount--;
+		ConnDeleted_count++;
+	}
+	else if (index == ConnCount - 1)
+	{
+		delete ConnList[ConnCount - 1];
+		ConnCount--;
+		ConnDeleted_count++;
+	}
+	else {
+
+	}
+}
 

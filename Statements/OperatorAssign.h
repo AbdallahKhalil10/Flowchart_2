@@ -44,6 +44,15 @@ public:
 	virtual Connector* getStatConnector(int ConnType);
 
 	virtual Point GetConnectorPoint(int Order);
+
+
+
+	string getLHS();
+	string getRHS1();
+	string getOperator();
+	string getRHS2();
+
+
 };
 
 #endif

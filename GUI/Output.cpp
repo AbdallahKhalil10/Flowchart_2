@@ -225,7 +225,7 @@ void Output::DrawReadWriteStatement(Point Right, int width, int height, string T
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString((Right.x) - width / 2 -20, Right.y + height / 4, Text);
+	pWind->DrawString((Right.x) - width / 2 -40, Right.y + height / 4, Text);
 
 }
 
@@ -246,7 +246,7 @@ void Output::DrawConditionalStatement(Point Right, int width, int height, string
 
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString((Right.x) - width/2 -10, Right.y, Text);
+	pWind->DrawString((Right.x) - width/2 -30, Right.y+5, Text);
 
 	pWind->DrawString(Right.x+10, Right.y-10, "NO");
 	pWind->DrawString(Right.x - width- 30, Right.y - 10, "YES");

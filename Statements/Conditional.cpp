@@ -149,3 +149,18 @@ Point Conditional::GetConnectorPoint(int Order)
 	}
 
 }
+
+
+
+string Conditional::getLHS()
+{
+	return LHS;
+}
+string Conditional::getRHS()
+{
+	return RHS;
+}
+string Conditional::getOperator()
+{
+	return OP;
+}

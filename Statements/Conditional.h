@@ -49,6 +49,16 @@ public:
 	virtual Connector* getStatConnector(int ConnType);
 	virtual Point GetConnectorPoint(int Order);
 
+	//////////////////////////////////////////////////////
+
+
+	string getLHS();
+	
+	string getRHS();
+
+	string getOperator();
+	
+
 };
 
 #endif

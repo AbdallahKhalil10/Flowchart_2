@@ -95,15 +95,7 @@ void AddConnector::Execute()
 	pConnect->setStartPoint(Start);
 	pConnect->setEndPoint(End);
 
-	//pConnect->setSrcID(SrcStat->GetID());
-	//pConnect->setDstID(DstStat->GetID());
-	//pConnect->setConnType(ConnType);
 
 	pManager->SetConnector(pConnect);
 
-	//SrcStat->setStatConnector(pConnect);
-
-	//pManager->setEditedDesign(true);
-
-	//pManager->UndoRedo();
 }

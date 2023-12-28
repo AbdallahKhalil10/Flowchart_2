@@ -1,0 +1,16 @@
+7
+Start Statement    Statement ID: 1    point_1_X : 404  point_1_Y : 77
+Read Statement    Statement ID: 2    point_1_X : 395  point_1_Y : 161    point_2_X : 545  point_2_Y : 161   Variable_read: X
+Conditional Statement    Statement ID: 3    point_1_X : 401  point_1_Y : 252    point_2_X : 551  point_2_Y : 252    Left_operator : X    Comparison_operator : >    Right_operator : 10
+Value_Assign Statement    Statement ID: 4    point_1_X : 208  point_1_Y : 319    variable name: X    value assigned: 1
+Operator_Assign Statement    Statement ID: 5    point_1_X : 631  point_1_Y : 322    Left_operator : X    First_Right : 1    Arithmetic_Operator : *    Second_Right : Z
+Write Statement    Statement ID: 6    point_1_X : 392  point_1_Y : 423     point_2_X : 542  point_2_Y : 423    Variable_Write: X
+End Statement    Statement ID: 7    point_1_X : 376  point_1_Y : 535
+7
+Conncetor ID: 1 Start.x: 479 Start.y: 127 End.x: 470 End.y: 161
+Conncetor ID: 2 Start.x: 470 Start.y: 211 End.x: 476 End.y: 242
+Conncetor ID: 3 Start.x: 551 Start.y: 267 End.x: 706 End.y: 322
+Conncetor ID: 4 Start.x: 401 Start.y: 267 End.x: 283 End.y: 319
+Conncetor ID: 5 Start.x: 706 Start.y: 372 End.x: 467 End.y: 423
+Conncetor ID: 6 Start.x: 283 Start.y: 369 End.x: 467 End.y: 423
+Conncetor ID: 7 Start.x: 467 Start.y: 473 End.x: 451 End.y: 535

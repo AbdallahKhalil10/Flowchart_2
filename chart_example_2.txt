@@ -1,0 +1,21 @@
+9
+Start Statement    Statement ID: 1    point_1_X : 439  point_1_Y : 89
+Value_Assign Statement    Statement ID: 15    point_1_X : 674  point_1_Y : 336    variable name: X    value assigned: 15
+Write Statement    Statement ID: 18    point_1_X : 660  point_1_Y : 449     point_2_X : 810  point_2_Y : 449    Variable_Write: Y
+Conditional Statement    Statement ID: 13    point_1_X : 412  point_1_Y : 270    point_2_X : 562  point_2_Y : 270    Left_operator : X>Y    Comparison_operator : >    Right_operator : 2
+Read Statement    Statement ID: 12    point_1_X : 658  point_1_Y : 182    point_2_X : 808  point_2_Y : 182   Variable_read: y
+Read Statement    Statement ID: 11    point_1_X : 216  point_1_Y : 173    point_2_X : 366  point_2_Y : 173   Variable_read: x 
+Value_Assign Statement    Statement ID: 14    point_1_X : 198  point_1_Y : 349    variable name: x    value assigned: 20
+Write Statement    Statement ID: 16    point_1_X : 278  point_1_Y : 454     point_2_X : 428  point_2_Y : 454    Variable_Write: X
+End Statement    Statement ID: 20    point_1_X : 452  point_1_Y : 518
+10
+Conncetor ID: 3 Start.x: 733 Start.y: 232 End.x: 487 End.y: 260
+Conncetor ID: 4 Start.x: 291 Start.y: 223 End.x: 487 End.y: 260
+Conncetor ID: 5 Start.x: 514 Start.y: 139 End.x: 733 End.y: 182
+Conncetor ID: 6 Start.x: 514 Start.y: 139 End.x: 291 End.y: 173
+Conncetor ID: 7 Start.x: 562 Start.y: 285 End.x: 749 End.y: 336
+Conncetor ID: 8 Start.x: 412 Start.y: 285 End.x: 273 End.y: 349
+Conncetor ID: 9 Start.x: 749 Start.y: 386 End.x: 735 End.y: 449
+Conncetor ID: 10 Start.x: 273 Start.y: 399 End.x: 353 End.y: 454
+Conncetor ID: 11 Start.x: 735 Start.y: 499 End.x: 527 End.y: 518
+Conncetor ID: 12 Start.x: 353 Start.y: 504 End.x: 527 End.y: 518

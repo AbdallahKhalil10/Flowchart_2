@@ -30,8 +30,13 @@ private:
 
 	//////////////////////////////////////////////////////////////////////////////////////    added
 	Connector* pSelectedConn; //a pointer to the last selected Connector  
+
+	int StatDeleted_count;
+
+	int ConnDeleted_count;
 	///////////////////////////////////////////////////////////////////////////
 	 
+
 
 	//Pointers to Input and Output classes
 	Input *pIn;
@@ -90,7 +95,10 @@ public:
 	void SetConnector(Connector* pConn);
 	Connector* GetConnector(Point P) const;
 	Connector* GetSelectedConnector() const;
-	void SetSelectedConnector(Connector* pConn);
+	void SetSelectedConnector(Connector* pConn); 
+	void SetStatementCount(int count);
+	void DeleteStatement(int index);
+	void DeleteConnector(int index);
 };
 
 #endif
